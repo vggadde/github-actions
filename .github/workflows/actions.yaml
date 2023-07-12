@@ -7,11 +7,12 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2
-      - run: git checkout HEAD^
+      - run: git checkout main
       - name: list files
         run: |
           pwd
           ls
+          git status
       - name: simple javascript actions
         id: greet
         uses: actions/hello-world-javascript-action@v1.1
