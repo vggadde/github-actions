@@ -4,6 +4,10 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - run: git checkout HEAD^
       - name: list files
         run: |
           pwd
