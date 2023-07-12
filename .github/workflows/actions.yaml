@@ -1,18 +1,18 @@
 name: Actions Workflow
 on:
-  #push: 
-  schedule:
-    - cron: '24 19 * * *'
+  push: 
+  # schedule:
+  #   - cron: '24 19 * * *'
   pull_request: 
     types: [closed, assigned, opened, reopened]
 jobs: 
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ github }}
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2
-      - run: git checkout main
       - name: list files
         run: |
           pwd
